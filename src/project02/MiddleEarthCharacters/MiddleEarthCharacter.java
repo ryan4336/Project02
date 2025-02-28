@@ -1,9 +1,9 @@
 package project02.MiddleEarthCharacters;
 
 public abstract class MiddleEarthCharacter {
-	private String name;
-	private double health;
-	private double power;
+	protected String name;
+	protected double health;
+	protected double power;
 	
 	
 	public MiddleEarthCharacter(String name, double health, double power) {
@@ -16,10 +16,7 @@ public abstract class MiddleEarthCharacter {
 	abstract String getRace();
 	
 	public void displayInfo() {
-		System.out.println("Printing Character Details:");
-		System.out.println("Name: " + name);
-		System.out.println("Health: " + health);
-		System.out.println("Power: " + power);
-		System.out.println("Race: " + getRace());
+		System.out.println("Name: " + name + "; Health: " + health + "; Power: " + power + "; Race: " + getRace());
 	}
+	
 }
