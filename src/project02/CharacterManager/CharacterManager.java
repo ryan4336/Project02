@@ -21,18 +21,18 @@ public class CharacterManager {
 	    }
 	    characters[size] = c;
 	    size++;
-	    System.out.println("Added character successfully!\n");
+	    System.out.println("\nAdded character \"" + c.getName() + "\" successfully!");
 	    return true;
 	}
 	
 	public MiddleEarthCharacter getCharacter(String name) {
-		System.out.println("Searching for character named \"" + name + "\"...");
+		System.out.println("\nSearching for character named \"" + name + "\"...");
 		for(int i = 0; i < characters.length; i++) {
 			if(characters[i] == null) {
 				continue;
 			}
 			if(characters[i].getName().equals(name)) {
-				System.out.println("Character found!\n");
+				System.out.println("Character found!");
 				return characters[i];
 			}
 			
@@ -47,17 +47,50 @@ public class CharacterManager {
 				continue;
 			}
 			if(character.equals(characters[i])) {
-				System.out.println("Updating character: ");
+				System.out.println("\nUpdating character: ");
 				characters[i].displayInfo();
 				characters[i].setName(name);
 				characters[i].setHealth(health);
 				characters[i].setPower(power);
-				System.out.println("Character updated: ");
+				System.out.println("Character after update: ");
 				characters[i].displayInfo();
 				return true;
 			}
 		}
-		System.out.println("Character not found. Unable to update.");
+		System.out.println("Character not found.");
 		return false;
+	}
+	
+	public boolean deleteCharacter(MiddleEarthCharacter character) {
+		for(int i = 0; i < characters.length; i++) {
+			if(characters[i] == null) {
+				continue;
+			}
+			if(characters[i] == character) {
+				
+				for(int x = i; x < size - 1; x++) {
+					characters[x] = characters[x + 1];
+				}
+				characters[size-1] = null;
+				size--;
+				System.out.println("\nCharacter named \"" + character.getName() + "\" deleted successfully.");
+				return true;
+			}
+		}
+		System.out.println("\nCharacter not found.");
+		return false;
+	}
+	
+	public void displayAllCharacters() {
+		System.out.println("\nPrinting all character info...");
+		for(int i = 0; i < characters.length; i++) {
+			if(characters[i] == null) {
+				continue;
+			}
+			if(characters[i] != null) {
+				characters[i].displayInfo();
+			}
+			
+		}
 	}
 }
