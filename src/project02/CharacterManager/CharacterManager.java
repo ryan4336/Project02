@@ -40,4 +40,24 @@ public class CharacterManager {
 		System.out.println("Character with name \"" + name + "\" not found.");
 		return null;
 	}
+	
+	public boolean updateCharacter(MiddleEarthCharacter character, String name, int health, int power) {
+		for(int i = 0; i < characters.length; i++) {
+			if(characters[i] == null) {
+				continue;
+			}
+			if(character.equals(characters[i])) {
+				System.out.println("Updating character: ");
+				characters[i].displayInfo();
+				characters[i].setName(name);
+				characters[i].setHealth(health);
+				characters[i].setPower(power);
+				System.out.println("Character updated: ");
+				characters[i].displayInfo();
+				return true;
+			}
+		}
+		System.out.println("Character not found. Unable to update.");
+		return false;
+	}
 }
