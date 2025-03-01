@@ -7,7 +7,7 @@ public class Dwarf extends MiddleEarthCharacter {
 	}
 
 	@Override
-	boolean attack(MiddleEarthCharacter target) {
+	public boolean attack(MiddleEarthCharacter target) {
 		if(target.getRace() == "Elf") {
 			target.health -= power * 1.5;
 			System.out.println("Super effective attack! 1.5x damage!");
@@ -23,7 +23,7 @@ public class Dwarf extends MiddleEarthCharacter {
 	}
 
 	@Override
-	String getRace() {
+	public String getRace() {
 		return "Dwarf";
 	}
 	
