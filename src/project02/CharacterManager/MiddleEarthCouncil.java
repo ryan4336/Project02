@@ -6,7 +6,9 @@ public class MiddleEarthCouncil {
 	private CharacterManager characterManager;
 	
 	
-	private MiddleEarthCouncil() {}
+	private MiddleEarthCouncil() {
+		characterManager = new CharacterManager();
+	}
 	
 	
 	public static MiddleEarthCouncil getInstance() {
@@ -18,9 +20,6 @@ public class MiddleEarthCouncil {
 	
 	
 	public CharacterManager getCharacterManager() {
-		if(characterManager == null) {
-			characterManager = new CharacterManager();
-		}
 		return characterManager;
 		
 	}
