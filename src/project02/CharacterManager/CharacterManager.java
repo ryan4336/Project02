@@ -31,7 +31,7 @@ public class CharacterManager {
 			if(characters[i] == null) {
 				continue;
 			}
-			if(characters[i].getName().equals(name)) {
+			if(characters[i].getName().toLowerCase().equals(name.toLowerCase())) {
 				System.out.println("Character found!");
 				return characters[i];
 			}
