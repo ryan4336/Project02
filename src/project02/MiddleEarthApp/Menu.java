@@ -55,7 +55,7 @@ public class Menu {
 				Menu.deleteCharacter(scanner);
 				break;
 			case 5:
-				
+				Menu.attack(scanner);
 				break;
 			case 6:
 				
@@ -137,6 +137,7 @@ public class Menu {
 			
 		}
 		Menu.displayMenu(scanner);
+		return;
 	}
 	
 	
@@ -147,6 +148,7 @@ public class Menu {
 		characterManager.displayAllCharacters();
 		
 		Menu.displayMenu(scanner);
+		return;
 	}
 	
 	public static void updateCharacter(Scanner scanner) {
@@ -165,6 +167,7 @@ public class Menu {
 		if(characterToUpdate == null) {
 			System.out.println("Returning to menu...");
 			Menu.displayMenu(scanner);
+			return;
 		}
 		
 		System.out.println("Enter the character's new name: ");
@@ -189,6 +192,7 @@ public class Menu {
 		
 		characterManager.updateCharacter(characterToUpdate, newName, health, power);
 		Menu.displayMenu(scanner);
+		return;
 	}
 	
 	public static void deleteCharacter(Scanner scanner) {
@@ -204,10 +208,47 @@ public class Menu {
 		if(characterToDelete == null) {
 			System.out.println("\nReturning to menu...");
 			Menu.displayMenu(scanner);
+			return;
 		}
 		
 		characterManager.deleteCharacter(characterToDelete);
 		
+		Menu.displayMenu(scanner);
+	}
+	
+	public static void attack(Scanner scanner) {
+		MiddleEarthCouncil instance = MiddleEarthCouncil.getInstance();
+		CharacterManager characterManager = instance.getCharacterManager();
+		String attackerName;
+		String victimName;
+		
+		System.out.println("Enter the name of the character that you will be attacking as: ");
+		attackerName = scanner.nextLine();
+		
+		MiddleEarthCharacter attacker = characterManager.getCharacter(attackerName);
+		if(attacker == null) {
+			System.out.println("\nReturning to menu...");
+			Menu.displayMenu(scanner);
+			return;
+		}
+		
+		System.out.println("Enter the name of the character that you will be attacking: ");
+		victimName = scanner.nextLine();
+		
+		MiddleEarthCharacter victim = characterManager.getCharacter(victimName);
+		if(victim == null) {
+			System.out.println("\nReturning to menu...");
+			Menu.displayMenu(scanner);
+			return;
+		}
+		if(victim.equals(attacker)) {
+			System.out.println("ERROR: You may not attack yourself.");
+			System.out.println("\nReturning to menu...");
+			Menu.displayMenu(scanner);
+			return;
+		}
+		
+		attacker.attack(victim);
 		Menu.displayMenu(scanner);
 	}
 	
