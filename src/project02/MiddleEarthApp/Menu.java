@@ -52,7 +52,7 @@ public class Menu {
 				Menu.updateCharacter(scanner);
 				break;
 			case 4:
-				
+				Menu.deleteCharacter(scanner);
 				break;
 			case 5:
 				
@@ -188,6 +188,26 @@ public class Menu {
 		scanner.nextLine();
 		
 		characterManager.updateCharacter(characterToUpdate, newName, health, power);
+		Menu.displayMenu(scanner);
+	}
+	
+	public static void deleteCharacter(Scanner scanner) {
+		MiddleEarthCouncil instance = MiddleEarthCouncil.getInstance();
+		CharacterManager characterManager = instance.getCharacterManager();
+		
+		String name;
+		
+		System.out.println("Enter the name of the character you want to delete: ");
+		name = scanner.nextLine();
+		
+		MiddleEarthCharacter characterToDelete = characterManager.getCharacter(name);
+		if(characterToDelete == null) {
+			System.out.println("\nReturning to menu...");
+			Menu.displayMenu(scanner);
+		}
+		
+		characterManager.deleteCharacter(characterToDelete);
+		
 		Menu.displayMenu(scanner);
 	}
 	
