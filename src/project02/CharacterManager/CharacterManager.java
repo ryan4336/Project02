@@ -2,6 +2,11 @@ package project02.CharacterManager;
 
 import project02.MiddleEarthCharacters.MiddleEarthCharacter;
 
+/**
+ * Manages the characters in Middle Earth by allowing operations such as 
+ * adding, retrieving, updating, and deleting characters.
+ * This class acts as a repository for character management.
+ */
 public class CharacterManager {
 	private MiddleEarthCharacter[] characters;
 	private int size;
