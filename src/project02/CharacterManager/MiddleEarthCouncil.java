@@ -1,5 +1,9 @@
 package project02.CharacterManager;
 
+/**
+ * Singleton class.
+ * Ensures only one instance of MiddleEarthCouncil exists and provides access to the CharacterManager.
+ */
 public class MiddleEarthCouncil {
 	
 	private static MiddleEarthCouncil instance;

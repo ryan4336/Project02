@@ -11,8 +11,17 @@ import project02.MiddleEarthCharacters.MiddleEarthCharacter;
 import project02.MiddleEarthCharacters.Orc;
 import project02.MiddleEarthCharacters.Wizard;
 
+/**
+ * Provides a user interface for managing Middle Earth characters.
+ * Allows adding, updating, deleting, and viewing characters, as well as executing attacks.
+ */
 public class Menu {
 	
+	/**
+     * Displays the main menu, processes user input, and calls a method based on the input.
+     * 
+     * @param scanner Scanner object for user input.
+     */
 	public static void displayMenu(Scanner scanner) {
 		System.out.println("\nWhat would you like to do?\n-----------------------\n");
 		System.out.println("1. Add a new character.");
@@ -67,7 +76,11 @@ public class Menu {
 		
 	}
 	
-	
+	/**
+     * Adds a new character based on user input.
+     * 
+     * @param scanner Scanner object for user input.
+     */
 	private static void addCharacter(Scanner scanner) {
 		
 		String name;
@@ -140,7 +153,11 @@ public class Menu {
 		return;
 	}
 	
-	
+	/**
+     * Displays all characters in the CharacterManager.
+     * 
+     * @param scanner Scanner object for user input.
+     */
 	public static void viewCharacters(Scanner scanner) {
 		MiddleEarthCouncil instance = MiddleEarthCouncil.getInstance();
 		CharacterManager characterManager = instance.getCharacterManager();
@@ -151,6 +168,11 @@ public class Menu {
 		return;
 	}
 	
+	/**
+     * Updates an existing character's information using a name given by the user.
+     * 
+     * @param scanner Scanner object for user input.
+     */
 	public static void updateCharacter(Scanner scanner) {
 		MiddleEarthCouncil instance = MiddleEarthCouncil.getInstance();
 		CharacterManager characterManager = instance.getCharacterManager();
@@ -195,6 +217,11 @@ public class Menu {
 		return;
 	}
 	
+	/**
+     * Deletes a character based on a name of a character given by user input.
+     * 
+     * @param scanner Scanner object for user input.
+     */
 	public static void deleteCharacter(Scanner scanner) {
 		MiddleEarthCouncil instance = MiddleEarthCouncil.getInstance();
 		CharacterManager characterManager = instance.getCharacterManager();
@@ -216,6 +243,11 @@ public class Menu {
 		Menu.displayMenu(scanner);
 	}
 	
+	/**
+     * Executes an attack action between two characters given by the user.
+     * 
+     * @param scanner Scanner object for user input.
+     */
 	public static void attack(Scanner scanner) {
 		MiddleEarthCouncil instance = MiddleEarthCouncil.getInstance();
 		CharacterManager characterManager = instance.getCharacterManager();
