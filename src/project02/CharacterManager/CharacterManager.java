@@ -6,11 +6,20 @@ public class CharacterManager {
 	private MiddleEarthCharacter[] characters;
 	private int size;
 	
+	/**
+     * Constructs a CharacterManager object with an initial capacity of 2.
+     */
 	public CharacterManager() {
 		characters = new MiddleEarthCharacter[2];
 		size = 0;
 	}
 	
+	/**
+     * Adds a new character to the characters array. If the array is full, it doubles the size of the array.
+     * 
+     * @param c The character to be added.
+     * @return true if the character is added successfully.
+     */
 	public boolean addCharacter(MiddleEarthCharacter c){
 		if (size >= characters.length) { 
 	        MiddleEarthCharacter[] newCharacters = new MiddleEarthCharacter[characters.length * 2];
@@ -25,6 +34,12 @@ public class CharacterManager {
 	    return true;
 	}
 	
+	/**
+     * Searches for a character by name.
+     * 
+     * @param name The name of the character to search for.
+     * @return The character if found, otherwise null.
+     */
 	public MiddleEarthCharacter getCharacter(String name) {
 		System.out.println("\nSearching for character named \"" + name + "\"...");
 		for(int i = 0; i < characters.length; i++) {
@@ -41,6 +56,15 @@ public class CharacterManager {
 		return null;
 	}
 	
+	/**
+     * Updates the details of an existing character.
+     * 
+     * @param character The character to update.
+     * @param name      The new name of the character.
+     * @param health    The new health value of the character.
+     * @param power     The new power value of the character.
+     * @return true if the character is updated successfully, otherwise false.
+     */
 	public boolean updateCharacter(MiddleEarthCharacter character, String name, int health, int power) {
 		for(int i = 0; i < characters.length; i++) {
 			if(characters[i] == null) {
@@ -61,6 +85,12 @@ public class CharacterManager {
 		return false;
 	}
 	
+	/**
+     * Deletes a character from the characters array.
+     * 
+     * @param character The character to delete.
+     * @return true if the character is successfully deleted, otherwise false.
+     */
 	public boolean deleteCharacter(MiddleEarthCharacter character) {
 		for(int i = 0; i < characters.length; i++) {
 			if(characters[i] == null) {
@@ -81,6 +111,9 @@ public class CharacterManager {
 		return false;
 	}
 	
+	/**
+     * Displays all characters currently stored in the characters array.
+     */
 	public void displayAllCharacters() {
 		System.out.println("\nPrinting all character info...");
 		for(int i = 0; i < characters.length; i++) {
