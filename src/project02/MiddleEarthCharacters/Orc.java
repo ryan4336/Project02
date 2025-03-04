@@ -1,11 +1,28 @@
 package project02.MiddleEarthCharacters;
 
+/**
+ * Represents an Orc character.
+ * Extends MiddleEarthCharacter.
+ */
 public class Orc extends MiddleEarthCharacter {
 
+	/**
+     * Constructs an Orc character with specified attributes.
+     * 
+     * @param name   The name of the Orc.
+     * @param health The health points of the Orc.
+     * @param power  The attack power of the Orc.
+     */
 	public Orc(String name, double health, double power) {
 		super(name, health, power);
 	}
 
+	/**
+	* Orc attack: 
+	* Deals 1.5x damage to Humans.
+    * Cannot damage Elves or other Orcs.
+    * Deals normal damage to other races.
+    */
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
 		if(target.getRace() == "Human") {
@@ -26,6 +43,5 @@ public class Orc extends MiddleEarthCharacter {
 	public String getRace() {
 		return "Orc";
 	}
-	
 	
 }

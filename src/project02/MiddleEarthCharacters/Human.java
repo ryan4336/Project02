@@ -1,11 +1,28 @@
 package project02.MiddleEarthCharacters;
 
+/**
+ * Represents a Human character.
+ * Extends MiddleEarthCharacter.
+ */
 public class Human extends MiddleEarthCharacter {
 
+	/**
+     * Constructs a Human character with specified attributes.
+     * 
+     * @param name   The name of the Human.
+     * @param health The health points of the Human.
+     * @param power  The attack power of the Human.
+     */
 	public Human(String name, double health, double power) {
 		super(name, health, power);
 	}
-
+	
+	/**
+	* Human attack: 
+	* Deals 1.5x damage to Wizards.
+    * Cannot damage Orcs or other Humans.
+    * Deals normal damage to other races.
+    */
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
 		if(target.getRace() == "Wizard") {

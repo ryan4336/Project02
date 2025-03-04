@@ -1,11 +1,28 @@
 package project02.MiddleEarthCharacters;
 
+/**
+ * Represents a Dwarf character.
+ * Extends MiddleEarthCharacter.
+ */
 public class Dwarf extends MiddleEarthCharacter {
 
+	/**
+     * Constructs a Dwarf character with specified attributes.
+     * 
+     * @param name   The name of the Dwarf.
+     * @param health The health points of the Dwarf.
+     * @param power  The attack power of the Dwarf.
+     */
 	public Dwarf(String name, double health, double power) {
 		super(name, health, power);
 	}
 
+   /**
+	* Dwarf attack: 
+	* Deals 1.5x damage to Elves.
+    * Cannot damage Wizards or other Dwarves.
+    * Deals normal damage to other races.
+    */
 	@Override
 	public boolean attack(MiddleEarthCharacter target) {
 		if(target.getRace() == "Elf") {
@@ -22,6 +39,7 @@ public class Dwarf extends MiddleEarthCharacter {
 		return true;
 	}
 
+	
 	@Override
 	public String getRace() {
 		return "Dwarf";
